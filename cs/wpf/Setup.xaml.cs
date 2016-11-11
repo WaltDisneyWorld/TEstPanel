@@ -22,22 +22,28 @@ namespace EvilPanel
     /// </summary>
     public partial class Setup : Window
     {
+        public string dbLocation;
+
         public Setup()
         {
             InitializeComponent();
         }
 
+        
+
         private void confirmButton_Click(object sender, RoutedEventArgs e)
         {
+         
 
             // User input into table
-            if (Directory.Exists(directoryBox.Text))
+            if (Directory.Exists(directoryBox.Text) && userBox.Text != null && passwordBox.Password != null)
             {
                 // Initialize database
                 SQLiteConnection.CreateFile("EvilPanel.sqlite");
                 SQLiteConnection db = new SQLiteConnection("Data Source=EvilPanel.sqlite;Version=3;");
                 db.Open();
                 Dictionary<String, String> data = new Dictionary<String, String>();
+                sqlite sql = new sqlite();
 
                 // Create tables
                 SQLiteCommand command = new SQLiteCommand("create table users (username TEXT, password TEXT)", db);
@@ -46,48 +52,34 @@ namespace EvilPanel
                 command.ExecuteNonQuery();
 
                 // User input
-                command = new SQLiteCommand("insert into users (username, password) values ('" + userBox.Text + "', '" + sha512(passwordBox.Password) + "')", db);
+                dbLocation = directoryBox.Text + "EvilPanel.sqlite";
+                command = new SQLiteCommand("insert into users (username, password) values ('" + userBox.Text + "', '" + sql.sha512(passwordBox.Password) + "')", db);
                 command.ExecuteNonQuery();
                 command = new SQLiteCommand("insert into settings (setting, value) values ('directory', '" + directoryBox.Text + "')", db);
                 command.ExecuteNonQuery();
-                Console.WriteLine(userBox.Text);
-                Console.WriteLine(sha512(passwordBox.Password));
-                sqlite sql = new sqlite();
-                Console.WriteLine(sql.readValue("users", "username"));
+
+                MessageBox.Show("EvilPanel has been configured!");
+                MainWindow main = new MainWindow();
+                this.Hide();
+                main.Show();
             }
-            else MessageBox.Show("Please enter a valid directory.");
+            else MessageBox.Show("Error: invalid inputs");
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             MainWindow main = new MainWindow();
-            main.Close();
+            main.Hide();
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Are you sure you want to cancel setup?", "Cancel setup", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-            if (result == MessageBoxResult.No)
-            {
-                e.Cancel = true;
-            }
-            else if (result == MessageBoxResult.Yes)
-            {
-                Application.Current.Shutdown();
-            }
+            // Closing code
         }
 
-        public static string sha512(string input)
+        private void Window_Closed(object sender, EventArgs e)
         {
-            SHA512 sha512 = SHA512Managed.Create();
-            byte[] bytes = Encoding.UTF8.GetBytes(input);
-            byte[] hash = sha512.ComputeHash(bytes);
-            StringBuilder result = new StringBuilder();
-            for (int i = 0; i < hash.Length; i++)
-            {
-                result.Append(hash[i].ToString("X2"));
-            }
-            return result.ToString();
+            Application.Current.Shutdown();
         }
     }
 }

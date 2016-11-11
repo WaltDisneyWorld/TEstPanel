@@ -13,14 +13,15 @@
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
         Title="Setup" Height="450" Width="720"
         Loaded="Window_Loaded"
-        Closing="Window_Closing">
+        Closing="Window_Closing"
+        Closed="Window_Closed">
     <Grid>
         <materialDesign:Card Padding="32" Margin="16">
             <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" Text="Setup"/>
         </materialDesign:Card>
         <TextBox x:Name="directoryBox" HorizontalAlignment="Center" Height="23" Margin="41,163,529,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142" RenderTransformOrigin="-0.025,0.391" SpellCheck.IsEnabled="True"/>
         <Label x:Name="directoryLabel" Content="Server directory" HorizontalAlignment="Center" Margin="16,136,499,0" VerticalAlignment="Top" Width="197" HorizontalContentAlignment="Center"/>
-        <Button x:Name="confirmButton" Content="Confirm" HorizontalAlignment="Left" Margin="319,358,0,0" VerticalAlignment="Top" Width="94" Click="confirmButton_Click"/>
+        <Button x:Name="confirmButton" Content="Confirm" HorizontalAlignment="Left" Margin="319,358,0,0" VerticalAlignment="Top" Width="94" Click="confirmButton_Click" IsDefault="True"/>
 
         <materialDesign:Snackbar MessageQueue="{materialDesign:MessageQueue}"
                                              x:Name="SnackbarThree" />
