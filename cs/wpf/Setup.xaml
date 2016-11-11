@@ -1,0 +1,32 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EvilPanel"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="EvilPanel.Setup"
+        mc:Ignorable="d"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+        Title="Setup" Height="450" Width="720"
+        Loaded="Window_Loaded"
+        Closing="Window_Closing">
+    <Grid>
+        <materialDesign:Card Padding="32" Margin="16">
+            <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" Text="Setup"/>
+        </materialDesign:Card>
+        <TextBox x:Name="directoryBox" HorizontalAlignment="Center" Height="23" Margin="41,163,529,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142" RenderTransformOrigin="-0.025,0.391" SpellCheck.IsEnabled="True"/>
+        <Label x:Name="directoryLabel" Content="Server directory" HorizontalAlignment="Center" Margin="16,136,499,0" VerticalAlignment="Top" Width="197" HorizontalContentAlignment="Center"/>
+        <Button x:Name="confirmButton" Content="Confirm" HorizontalAlignment="Left" Margin="319,358,0,0" VerticalAlignment="Top" Width="94" Click="confirmButton_Click"/>
+
+        <materialDesign:Snackbar MessageQueue="{materialDesign:MessageQueue}"
+                                             x:Name="SnackbarThree" />
+        <TextBox x:Name="userBox" HorizontalAlignment="Left" Height="23" Margin="295,163,0,0" TextWrapping="Wrap" Text="admin" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label" Content="Admin username" HorizontalAlignment="Left" Margin="295,131,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1" Content="Admin password" HorizontalAlignment="Left" Margin="295,218,0,0" VerticalAlignment="Top"/>
+        <PasswordBox x:Name="passwordBox" HorizontalAlignment="Left" Margin="295,250,0,0" VerticalAlignment="Top" Width="116"/>
+    </Grid>
+</Window>

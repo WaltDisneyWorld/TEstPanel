@@ -19,7 +19,7 @@
       <span class="mdl-layout-title">Home</span>
       <div class="mdl-layout-spacer"></div>
       <nav class="mdl-navigation mdl-layout--large-screen-only">
-        <a class="mdl-navigation__link" href=""><img src="img/settings-512.png" alt="Settings" style="width:50px;height:50px;"></a>
+        <a class="mdl-navigation__link" href="">Settings</a>
       </nav>
     </div>
   </header>
@@ -32,9 +32,9 @@
   </div>
   <main class="mdl-layout__content">
     <div class="page-content">
-    
+
     <!-- Your content goes here -->
-    
+
     </div>
   </main>
 </div>
