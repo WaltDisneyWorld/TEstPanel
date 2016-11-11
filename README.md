@@ -7,5 +7,5 @@ EvilPanel aims to be a universal game hosting server manager.
 -Web hosting server setup with PHP support <br />
 -Minimum requirements for running the game server of your choice
 
-### C#
+### C# 
 -Visual Studio 2015
