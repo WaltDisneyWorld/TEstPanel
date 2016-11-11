@@ -29,12 +29,33 @@ namespace EvilPanel
 
         private void confirmButton_Click(object sender, RoutedEventArgs e)
         {
-            Dictionary<String, String> data = new Dictionary<String, String>();
+
+            // User input into table
             if (Directory.Exists(directoryBox.Text))
-                data.Add("directory", directoryBox.Text);
-            Console.WriteLine("Directory: " + directoryBox.Text);
-            Console.WriteLine("Username: " + userBox.Text);
-            Console.WriteLine("Password hash: " + sha512(passwordBox.Password));
+            {
+                // Initialize database
+                SQLiteConnection.CreateFile("EvilPanel.sqlite");
+                SQLiteConnection db = new SQLiteConnection("Data Source=EvilPanel.sqlite;Version=3;");
+                db.Open();
+                Dictionary<String, String> data = new Dictionary<String, String>();
+
+                // Create tables
+                SQLiteCommand command = new SQLiteCommand("create table users (username TEXT, password TEXT)", db);
+                command.ExecuteNonQuery();
+                command = new SQLiteCommand("create table settings (setting TEXT, value TEXT)", db);
+                command.ExecuteNonQuery();
+
+                // User input
+                command = new SQLiteCommand("insert into users (username, password) values ('" + userBox.Text + "', '" + sha512(passwordBox.Password) + "')", db);
+                command.ExecuteNonQuery();
+                command = new SQLiteCommand("insert into settings (setting, value) values ('directory', '" + directoryBox.Text + "')", db);
+                command.ExecuteNonQuery();
+                Console.WriteLine(userBox.Text);
+                Console.WriteLine(sha512(passwordBox.Password));
+                sqlite sql = new sqlite();
+                Console.WriteLine(sql.readValue("users", "username"));
+            }
+            else MessageBox.Show("Please enter a valid directory.");
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
