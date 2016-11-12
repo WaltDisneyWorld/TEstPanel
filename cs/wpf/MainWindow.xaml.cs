@@ -27,10 +27,6 @@ namespace EvilPanel
             InitializeComponent();
         }
 
-        private void confirmButton_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -45,9 +41,16 @@ namespace EvilPanel
         private void verify_Click(object sender, RoutedEventArgs e)
         {
             sqlite sql = new sqlite();
-            if (verifyUser.Text == sql.readValue("users", "username") && sql.sha512(verifyPassword.Password) == sql.readValue("users", "password"))
-                MessageBox.Show("Verified!");
-            else MessageBox.Show("Not verified!");
+
+            if (usernameBox.Text == sql.readValue("users", "username") && sql.sha512(passwordBox.Password) == sql.readValue("users", "password"))
+            {
+                MessageBox.Show("Login successful!");
+            }
+            else
+            {
+                MessageBox.Show("Invalid credentials, please try again.");
+            }
+
         }
 
         private void Window_Closed(object sender, EventArgs e)

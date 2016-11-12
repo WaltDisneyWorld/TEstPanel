@@ -15,11 +15,12 @@
         Loaded="Window_Loaded"
         Closed="Window_Closed">
     <Grid>
-        <TextBox x:Name="verifyUser" HorizontalAlignment="Left" Height="23" Margin="104,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="verify" Content="Verify" HorizontalAlignment="Left" Margin="329,151,0,0" VerticalAlignment="Top" Width="75" Click="verify_Click" IsDefault="True"/>
-        <PasswordBox x:Name="verifyPassword" HorizontalAlignment="Left" Margin="104,210,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label" Content="Verify username" HorizontalAlignment="Left" Margin="104,95,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label1" Content="Verify password" HorizontalAlignment="Left" Margin="107,183,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="usernameBox" HorizontalAlignment="Left" Height="23" Margin="308,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <PasswordBox x:Name="passwordBox" HorizontalAlignment="Left" Margin="308,210,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="loginButton" Content="Login" HorizontalAlignment="Left" Margin="329,304,0,0" VerticalAlignment="Top" Width="75" Click="verify_Click" IsDefault="True"/>
+  
+        <Label x:Name="label" Content="Username" HorizontalAlignment="Left" Margin="329,100,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1" Content="Password" HorizontalAlignment="Left" Margin="329,178,0,0" VerticalAlignment="Top"/>
 
 
     </Grid>

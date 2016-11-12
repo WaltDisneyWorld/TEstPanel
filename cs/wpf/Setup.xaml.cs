@@ -29,11 +29,17 @@ namespace EvilPanel
             InitializeComponent();
         }
 
-        
+        private void browseButton_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Forms.FolderBrowserDialog browserDialog;
+            browserDialog = new System.Windows.Forms.FolderBrowserDialog();
+            System.Windows.Forms.DialogResult result = browserDialog.ShowDialog();
+            string path = browserDialog.SelectedPath;
+            directoryBox.Text = path + "\\";
+        }
 
         private void confirmButton_Click(object sender, RoutedEventArgs e)
         {
-         
 
             // User input into table
             if (Directory.Exists(directoryBox.Text) && userBox.Text != null && passwordBox.Password != null)
@@ -80,6 +86,11 @@ namespace EvilPanel
         private void Window_Closed(object sender, EventArgs e)
         {
             Application.Current.Shutdown();
+        }
+
+        private void Transitioner_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
