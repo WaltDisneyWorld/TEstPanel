@@ -2,3 +2,19 @@ body {
 	background-color: #212121
 }
 
+.status-img {
+	width: 25px;
+	margin-right: 25px;
+}
+
+.files-img {
+	width: 25px;
+	margin-right: 25px;
+}
+
+.mdl-button {
+	display: block;
+    margin: auto;
+	margin-top: 20%;
+	color: #FAFAFA;
+}

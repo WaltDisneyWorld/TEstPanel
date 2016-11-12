@@ -12,9 +12,11 @@
 
 <body>
 
+
+
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer">
   <header class="mdl-layout__header">
-    <div class="mdl-layout__header-row">
+    <div class="mdl-layout__header-row mdl-color--blue-800">
       <!-- Title -->
       <span class="mdl-layout-title">Home</span>
       <div class="mdl-layout-spacer"></div>
@@ -26,15 +28,15 @@
   <div class="mdl-layout__drawer">
     <span class="mdl-layout-title">Menu</span>
     <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" href="">Status</a>
-      <a class="mdl-navigation__link" href="">Files</a>
+      <a class="mdl-navigation__link status" href=""><img class="status-img" src="img/status.png"/>Status</a>
+      <a class="mdl-navigation__link files" href=""><img class="files-img" src="img/files.png"/>Files</a>
     </nav>
   </div>
   <main class="mdl-layout__content">
     <div class="page-content">
-
     <!-- Your content goes here -->
-
+    
+    
     </div>
   </main>
 </div>
