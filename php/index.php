@@ -5,14 +5,13 @@
     <title>EvilPanel</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="css/material.css">
-    <link rel="stylesheet" href="css/dark.css">
+    <link rel="stylesheet" href="css/dark.css" class="theme">
     <script src="js/material.js"></script>
     <script src="js/jquery-3.1.1.js"></script>
+	<script src="js/js.cookie-2.1.3.js"></script>
 </head>
 
 <body>
-
-
 
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer">
   <header class="mdl-layout__header">
@@ -34,8 +33,7 @@
   </div>
   <main class="mdl-layout__content">
     <div class="page-content">
-    <!-- Your content goes here -->
-    
+    <!-- Page content here -->
     
     </div>
   </main>

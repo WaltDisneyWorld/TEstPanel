@@ -275,3 +275,11 @@ __pycache__/
 
 # Cake - Uncomment if you are using it
 # tools/
+
+# DW Dreamweaver added files
+_notes
+_compareTemp
+configs/
+dwsync.xml
+dw_php_codehinting.config
+*.mno
