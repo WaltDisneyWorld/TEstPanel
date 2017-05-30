@@ -1,0 +1,16 @@
+{
+  "name": "evilpanel",
+  "version": "0.1.0",
+  "main": "main.js",
+  "repository": "https://github.com/evilarceus/EvilPanel",
+  "license": "MIT",
+
+  "devDependencies": {
+    "electron": "^1.6.10"
+  },
+
+  "scripts": {
+    "start-win": "node_modules/.bin/electron.cmd .",
+    "start-linux": "node_modules/.bin/electron ."
+  }
+}
