@@ -4,7 +4,6 @@
   "main": "main.js",
   "repository": "https://github.com/evilarceus/EvilPanel",
   "license": "MIT",
-
   "dependencies": {
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.0",
@@ -21,13 +20,13 @@
     "react-tap-event-plugin": "^2.0.1",
     "webpack": "^3.0.0"
   },
-
   "devDependencies": {
     "webpack-dev-server": "^2.5.0"
   },
-  
   "scripts": {
+    "hot-server": "node_modules/.bin/webpack-dev-server --config webpack.config.js",
     "start-win": "node_modules/.bin/electron.cmd .",
     "start-linux": "node_modules/.bin/electron ."
+
   }
 }
