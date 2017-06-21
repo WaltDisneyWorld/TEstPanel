@@ -5,8 +5,8 @@
   "repository": "https://github.com/evilarceus/EvilPanel",
   "license": "MIT",
 
-  "devDependencies": {
-    "electron": "^1.6.10"
+  "dependencies": {
+    "electron": "^1.6.11"
   },
 
   "scripts": {
