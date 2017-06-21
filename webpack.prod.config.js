@@ -3,25 +3,21 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    devtool: 'eval',
-    entry: {
-        app: ['./app/index.js']
-    },
+    entry: [
+        './app/index.js'
+    ],
     output: {
         path: __dirname + '/dist',
         filename: 'bundle.js',
-        publicPath: 'http://localhost:8080/'
-    },
-    devServer: {
-        contentBase: './app',
-        publicPath: 'http://localhost:8080/'
+        publicPath: '/'
     },
     module: {
         loaders:
             [
                 {
-                    test: /\.js?$/,
+                    test: /.js?$/,
                     loader: 'babel-loader',
+                    include: path.join(__dirname, 'app'),
                     exclude: /node_modules/,
                     query: {
                         presets: ['es2015', 'stage-1', 'react']
@@ -30,9 +26,15 @@ module.exports = {
             ]
     },
     plugins: [
+        new webpack.optimize.UglifyJsPlugin({
+            minimize: true,
+            compress: {
+                warnings: false
+            }
+        }),
         new HtmlWebpackPlugin({
-            title: "EvilToolkit - Webpack",
+            title: "EvilPanel",
             filename: "index.html"
-        })
+        }),
     ]
 };

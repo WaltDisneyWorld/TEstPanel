@@ -18,6 +18,7 @@
     "react-router-dom": "^4.1.1",
     "react-swipeable-views": "^0.12.3",
     "react-tap-event-plugin": "^2.0.1",
+    "uglifyjs": "^2.4.11",
     "webpack": "^3.0.0"
   },
   "devDependencies": {
@@ -25,8 +26,7 @@
   },
   "scripts": {
     "hot-server": "node_modules/.bin/webpack-dev-server --config webpack.config.js",
-    "start-win": "node_modules/.bin/electron.cmd .",
-    "start-linux": "node_modules/.bin/electron ."
-
+    "build:dev": "node_modules/.bin/webpack --config webpack.config.js",
+    "build:prod": "node_modules/.bin/webpack --config webpack.prod.config.js"
   }
 }
