@@ -1,11 +1,10 @@
 const webpack = require('webpack');
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     devtool: 'eval',
     entry: {
-        app: ['./app/index.js']
+        app: ['webpack-hot-middleware/client', './app/index.js']
     },
     output: {
         path: __dirname + '/dist',
@@ -24,15 +23,13 @@ module.exports = {
                     loader: 'babel-loader',
                     exclude: /node_modules/,
                     query: {
-                        presets: ['es2015', 'stage-1', 'react']
+                        presets: ['env', 'stage-1', 'react']
                     }
                 }
             ]
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            title: "EvilToolkit - Webpack",
-            filename: "index.html"
-        })
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoEmitOnErrorsPlugin(),
     ]
 };

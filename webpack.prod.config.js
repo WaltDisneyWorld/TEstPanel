@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
 
 module.exports = {
     entry: [
@@ -20,21 +20,12 @@ module.exports = {
                     include: path.join(__dirname, 'app'),
                     exclude: /node_modules/,
                     query: {
-                        presets: ['es2015', 'stage-1', 'react']
+                        presets: ['env', 'stage-1', 'react']
                     }
                 }
             ]
     },
     plugins: [
-        new webpack.optimize.UglifyJsPlugin({
-            minimize: true,
-            compress: {
-                warnings: false
-            }
-        }),
-        new HtmlWebpackPlugin({
-            title: "EvilPanel",
-            filename: "index.html"
-        }),
+        new UglifyJSPlugin()
     ]
 };
