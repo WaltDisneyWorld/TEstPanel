@@ -34,7 +34,7 @@
     "build:prod": "webpack --config webpack.prod.config.js",
     "dev": "concurrently --kill-others \"npm run hot-server\" \"npm run start-hot\"",
     "hot-server": "webpack-dev-server --config webpack.config.js",
-    "start": "electron .",
-    "start-hot": "HOT=1 node_modules/.bin/electron ."
+    "start": "npm run build:prod && cross-env NODE_ENV=production electron .",
+    "start-hot": "cross-env NODE_ENV=development electron ."
   }
 }

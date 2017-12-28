@@ -7,11 +7,9 @@ let win;
 function createWindow () {
   win = new BrowserWindow({width: 1280, height: 720});
 
-  win.loadURL(url.format({
-    pathname: path.join(__dirname, 'app/index.html'),
-    protocol: 'file:',
-    slashes: true
-  }));
+  if (process.env.NODE_ENV === "development") { console.log("DEV ENVIRONMENT DETECTED - Waiting until Webpack finishes...") }
+
+  win.loadURL(`file://${__dirname}/app/index.html`);
 
   // Dev tools
   // win.webContents.openDevTools()

@@ -14,6 +14,17 @@
 </head>
 <body>
 <div id="root"></div>
-<script async src="/bundle.js"></script>
+<script>
+  let script = document.createElement("script");
+  if (process.env.NODE_ENV === "development") {
+    let webpackLoading = document.body.appendChild(document.createTextNode("Waiting for Webpack..."));
+    script.async = true;
+    script.onload = () => webpackLoading.remove();
+    script.src = "http://localhost:8080/bundle.js";
+  } else {
+    script.src = "../dist/bundle.js"
+  }
+  document.body.appendChild(script);
+</script>
 </body>
 </html>
